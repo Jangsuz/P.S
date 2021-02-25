@@ -1,0 +1,15 @@
+n = input()
+count=0;
+x = int(n[1])
+y = ord(n[0]) - ord('a')+1
+
+#이동할 수 있는 경로-변경부분
+steps = [(1, 2), (1, -2), (-1, 2),(-1,-2), (2, 1), (2, -1), (-2, 1), (-2,-2)]
+for i in steps:
+  nx = x + i[0]
+  ny = y + i[1]
+  
+  if nx >= 1 and ny >= 1 and nx <= 8 and ny <= 8:
+    count+=1
+
+print(count)

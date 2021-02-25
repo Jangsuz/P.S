@@ -1,0 +1,25 @@
+#반복되는 수열을 이용하여 효율적으로 개선
+#큰수+두번째로 큰 수 조합으로 m보다 작거나 같을 만큼 반복됨
+
+n, m, k = map(int, input().split())
+
+d = list(map(int, input().split()))
+
+d.sort()
+
+first = d[n-1]
+second = d[n-2]
+
+result = 0
+
+#가장 큰 수가 더해지는 연산
+#int로 변환 필수
+count1 = int(m / (k+1)) * k
+
+#나누어 떨어지지 않을 때, 가장 큰 수가 더해지는 것 고려
+count1 += m % (k+1) 
+
+result += count1 * first
+result += (m - count1) * second
+
+print(result)
