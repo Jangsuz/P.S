@@ -1,3 +1,31 @@
+📌정해진 개수의 정수를 한줄에 입력받을 때
+import sys
+a,b,c = map(int,sys.stdin.readline().split())
+
+📌 임의의 개수의 정수를 한줄에 입력받아 리스트에 저장할 때
+import sys
+data = list(map(int,sys.stdin.readline().split()))
+
+📌 임의의 개수의 정수를 n줄 입력받아 2차원 리스트에 저장할 때(n*m, n*n 모두 포함)
+import sys
+data = []
+n = int(sys.stdin.readline())
+for i in range(n):
+    data.append(list(map(int,sys.stdin.readline().split())))
+
+📌 문자열 n줄을 입력받아 리스트에 저장할 때
+import sys
+n = int(sys.stdin.readline())
+data = [sys.stdin.readline().strip() for i in range(n)]
+
+📌특정 위치에 저장할 때 = 리스트 인덱스 접근할 때
+
+-2차원 리스트 생성
+a = [[0 for j in range(20)] for i in range(20)]
+
+-lambda 함수를 이용하여 기준 리스트 오름차순 정렬하기
+meetings = sorted(meetings, key = lambda x: [x[1], x[0]])
+
 -문자를 아스키 코드 값을 이용하여 a->1, b-2, 식으로 매칭. int 생략 가능. 현재 값 - 'a' 는 떨어진 정도를 알 수 있음
 y = ord(n[0]) - ord('a')+1
 
@@ -11,4 +39,44 @@ chr(ord('a')) = 'a'
 n = input() 시 string이 기본.
 따라서 n[0], n[1] 로 쪼개서 사용 가능
 
+📌재귀함수 사용해서 문제 풀 때 필수!
+import sys
+sys.setrecursionlimit(10**8)
+input = sys.stdin.readline
+
+
+📌10개 리스트 한번에 생성 - dp시 이용
+lists = [[] for _ in range(10)]
+
+#틀린 예!
+lists = [[]] * 10
+# lists = [[], [], [], [], [], [], [], [], [], []]
+
+📌파이썬에는 C++처럼 두 변수의 값을 바꾸는 함수가 따로 없다. 다만 다음과 같이 튜플을 이용해 두 변수의 값을 바꿀 수 있다.
+a = 1; b = 2
+(a, b) = (b, a)
+# a = 2, b = 1
+def swap(lst: list, i: int, j: int) -> None:
+    """
+    리스트 lst의 i번째 원소와 j번째 원소를 swap한다.
+    """
+    (lst[i], lst[j]) = (lst[j], lst[i])
+
+📌문자열조작
+Q>길이가 같은 두 문자열 s1, s2가 주어졌을 때, 다음 조건을 만족하는 문자열 s를 리턴하라.
+
+s의 길이는 s1, s2와 같다.
+0 <= i < N인 모든 i에 대해 (N은 s1의 길이)
+s1[i] >= s2[i] 일 경우 s[i] = s1[i]
+그 외의 경우 s[i] = s2[i]
+
+A>
+def solution(s1: str, s2: str) -> str:
+    s_as_list = []
+    for i in range(len(s1)):
+        if s1[i] >= s2[i]:
+            s_as_list.append(s1[i])
+        else:
+            s_as_list.append(s2[i])
+    return "".join(s_as_list)
 
