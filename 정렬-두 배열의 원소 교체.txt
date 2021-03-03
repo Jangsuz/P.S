@@ -1,0 +1,15 @@
+N, K = map(int, input().split())
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+
+#a, b리스트 정렬
+a.sort()
+b.sort(reverse = True)
+
+for i in range(K):
+  if a[i] < b[i]:
+    a[i], b[i] = b[i], a[i]
+  else: #A의 원소가 B의 원소보다 크거나 같을 때, 반복문 탈출
+    break
+
+print(sum(a))

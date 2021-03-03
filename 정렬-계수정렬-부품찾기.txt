@@ -1,0 +1,15 @@
+#계수 정렬 이용
+N = int(input())
+data = list(map(int, input().split()))
+M = int(input())
+customerdata = list(map(int, input().split()))
+check = [0] * 1000001 # [0] * (max(data) + 1)
+
+for i in range(len(data)):
+  check[data[i]] += 1
+
+for j in customerdata:
+  if check[j] >= 1:
+    print("yes", end = ' ')
+  else:
+    print("no", end = ' ')
