@@ -1,0 +1,15 @@
+# 뒤에서부터 접근하는 DP
+#i-1번째를 선택할 지, i-2+i번째를 선택할지 결정
+
+N = int(input())
+d = [0] * 1001
+
+food = list(map(int,input().split()))
+
+d[0] = 0
+d[1] = food[1]
+d[2] = max(food[0], food[1])
+for i in range(3, N+1):
+  d[i] = max(d[i-1], food[i-1]+d[i-2])
+
+print(d[N])
