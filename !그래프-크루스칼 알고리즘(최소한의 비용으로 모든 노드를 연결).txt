@@ -59,3 +59,6 @@ for edge in edges:
     result += cost
 
 print(result)
+
+📌문제예시(최소 신장 트리 암시!)
+-"각 마을 안의 두 집 사이에 경로가 항상 존재하게 하면서 길을 더 없앨 수 있다"->최소 신장 트리
