@@ -1,0 +1,16 @@
+s = input()
+
+data = []
+result = 0
+for i in s:
+  if i.isdigit():
+    result += int(i)
+  else:
+    data.append(i)
+
+data.sort() 
+
+#정수result를 str로 저장
+data.append(str(result))
+#리스트를 문자열로 변환하여 출력
+print(''.join(data))
